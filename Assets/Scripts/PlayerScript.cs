@@ -66,6 +66,9 @@ public class PlayerScript : MonoBehaviour
     {
         transform.position = batScript.transform.position;
         gameObject.SetActive(true);
+
+        animator.Rebind();
+        animator.Update(0f);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

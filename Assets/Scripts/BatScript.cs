@@ -33,15 +33,16 @@ public class BatScript : MonoBehaviour
     {
         move = InputSystem.actions["Move"].ReadValue<Vector2>();
 
-        if (move.x != 0 || move.y != 0)
+        if (move.x < 0)
         {
-            if (move.x != 0) 
-            {
-                direction = move.x < 0 ? -1 : 1;
-                animator.SetInteger("isLeft", direction);
-            }
+            direction = -1;
+            animator.SetInteger("isLeft", -1);
         }
-        
+        else if (move.x > 0) 
+        {
+            direction = 1;
+            animator.SetInteger("isLeft", 1);
+        }
     }
 
     public void TransformBat() 
@@ -51,13 +52,15 @@ public class BatScript : MonoBehaviour
         gameObject.SetActive(true);
         spriteRenderer.sprite = batSprite; //changes to the bat sprite
 
-        animator.SetInteger("isLeft", direction);
+        animator.Rebind(); //resets to natural state
+        animator.Update(0f); //updates the animator
     }
 
     public void TransformPlayer() 
     {
         isBat = false;
         gameObject.SetActive(false);
+
         playerScript.PlayerOut();
     }
 
