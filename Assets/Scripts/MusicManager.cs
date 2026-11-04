@@ -8,7 +8,6 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        isPlaying = true;
     }
 
     public void StopPlaying()

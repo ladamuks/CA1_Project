@@ -19,12 +19,7 @@ public class GameManager : MonoBehaviour
         UpdateLives(3);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //score starts at 100 and then deletes the amount player collects
     public void UpdateScore(int amount)
     {
         totalScore -= amount;

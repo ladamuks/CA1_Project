@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     private Animator animtor;
     [SerializeField] int damage;
     [SerializeField] float attackRange;
-    [SerializeField] Transform attackPointRight;
+    [SerializeField] Transform attackPointRight; //attack triggers
     [SerializeField] Transform attackPointLeft;
     [SerializeField] LayerMask enemyLayer;
     private SpriteRenderer spriteRenderer;
@@ -44,6 +44,8 @@ public class PlayerAttack : MonoBehaviour
     {
         animtor.SetTrigger("meleeAttack");
 
+        //attack points is where the player can damage enemy
+        //when player flips on the x-axis the point changes
         Transform currentAttackPoint;
         if (spriteRenderer.flipX)
         {

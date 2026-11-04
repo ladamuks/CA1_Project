@@ -16,8 +16,6 @@ public class BatScript : MonoBehaviour
     public bool isBat = false;
     private Vector3 startPos;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         startPos = transform.position;
@@ -31,7 +29,6 @@ public class BatScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         move = InputSystem.actions["Move"].ReadValue<Vector2>();
@@ -52,9 +49,9 @@ public class BatScript : MonoBehaviour
         transform.position = playerScript.transform.position; //gets the last position the player was at
         isBat = true;
         gameObject.SetActive(true);
-        spriteRenderer.sprite = batSprite;
+        spriteRenderer.sprite = batSprite; //changes to the bat sprite
 
-        animator.Play("isLeft", direction);
+        animator.SetInteger("isLeft", direction);
     }
 
     public void TransformPlayer() 

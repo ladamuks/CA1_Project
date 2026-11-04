@@ -7,10 +7,10 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     [SerializeField] private GameManager gm;
     private Vector3 startPos; //keeps the original position of the player
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
-        startPos = transform.position;
+        startPos = transform.position; //saves the original position of player
         health = maxHealth;
         gm.UpdateHearts(health);
     }
@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Respawn() 
     {
-        transform.position = startPos;
+        transform.position = startPos; //after timer runs out the player is transported back to original pos
     }
 
 }

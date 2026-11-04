@@ -10,14 +10,6 @@ public class Timer : MonoBehaviour
     [SerializeField] private GameManager gm;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private BatScript bat;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (timeRemaining > 0)
@@ -36,18 +28,19 @@ public class Timer : MonoBehaviour
                 bat.Respawn();
             }
 
-            //reset timer
+            //reset timer: timer goes down by 1 minute each death
             if (playerHealth.health > 20 && playerHealth.health < 100)
             {
                 timeRemaining = 120f;
             }
-            if (playerHealth.health > 0) 
+            else
             {
                 timeRemaining = 60f;
             }
         }
     }
 
+    //displays the timer on screen in format
     void DisplayTime(float timeToDisplay) 
     {
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);

@@ -26,10 +26,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetInteger("Direction", direction);
         animator.SetFloat("Move", 0);
-
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (isRunning && elapsedTime < walkTime)
@@ -60,7 +57,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0) 
         {
-            score.AddPoints(points);
+            score.RemovePoints(points);
             Destroy(gameObject);
         }
     }

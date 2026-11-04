@@ -28,7 +28,7 @@ public class Collectable : MonoBehaviour
         {
             if (score != null) 
             { 
-                score.AddPoints(points); 
+                score.RemovePoints(points); 
             }
             Destroy(gameObject);
         }

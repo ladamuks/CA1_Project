@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 namespace Cainos.PixelArtPlatformer_VillageProps
 {
     //code used: -https://www.youtube.com/watch?v=swwUZrlDopQ
+    //code came with the chest object
     public class Chest : MonoBehaviour
     {
         [FoldoutGroup("Reference")]
@@ -13,6 +14,7 @@ namespace Cainos.PixelArtPlatformer_VillageProps
         public int pointsReward = 10;
         private PlayerScore playerScore;
 
+        //when player enters the chest collider
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent<PlayerInput>(out var input))
@@ -67,7 +69,7 @@ namespace Cainos.PixelArtPlatformer_VillageProps
 
             if (playerScore != null) 
             {
-                playerScore.AddPoints(pointsReward);
+                playerScore.RemovePoints(pointsReward);
             }
         }
 

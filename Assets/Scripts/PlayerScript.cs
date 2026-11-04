@@ -29,6 +29,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         move = InputSystem.actions["Move"].ReadValue<Vector2>();
+
         //checks each jump frame, IsPressed is always true
         if (InputSystem.actions["Jump"].WasPressedThisFrame() && canJump)
         {
